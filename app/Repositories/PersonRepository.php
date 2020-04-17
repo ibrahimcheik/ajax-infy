@@ -17,6 +17,8 @@ class PersonRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'genre',
+        'cauntry',
         'nom',
         'prenom',
         'age',

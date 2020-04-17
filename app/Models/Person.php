@@ -21,7 +21,7 @@ class Person extends Model
     use SoftDeletes;
 
     public $table = 'persons';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -31,6 +31,8 @@ class Person extends Model
 
 
     public $fillable = [
+        'genre',
+        'cauntry',
         'nom',
         'prenom',
         'age',
@@ -45,6 +47,8 @@ class Person extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'genre' => 'string',
+        'cauntry' => 'string',
         'nom' => 'string',
         'prenom' => 'string',
         'age' => 'integer',
@@ -58,6 +62,8 @@ class Person extends Model
      * @var array
      */
     public static $rules = [
+        'genre' => 'required',
+        'cauntry' => 'required',
         'nom' => 'required',
         'prenom' => 'required',
         'age' => 'required',
@@ -65,5 +71,5 @@ class Person extends Model
         'description' => 'required'
     ];
 
-    
+
 }

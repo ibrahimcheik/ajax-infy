@@ -2,9 +2,11 @@
     <table class="table table-striped" id="people-table">
         <thead>
             <tr>
-                <th>Nom</th>
+        <th>Nom</th>
         <th>Prenom</th>
+        <th>genre</th>
         <th>Age</th>
+        <th>Pays</th>
         <th>Date</th>
         <th>Description</th>
                 <th colspan="3">Action</th>
@@ -15,7 +17,9 @@
             <tr>
                 <td>{{ $person->nom }}</td>
             <td>{{ $person->prenom }}</td>
+            <td>{{ $person->genre }}</td>
             <td>{{ $person->age }}</td>
+            <td>{{ $person->cauntry }}</td>
             <td>{{ $person->date }}</td>
             <td>{{ $person->description }}</td>
                 <td>

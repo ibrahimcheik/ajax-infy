@@ -24,6 +24,29 @@
     {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" /> --}}
 
     <style type="text/css">
+    .modalCenter {
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+      }
+      .modal a.close-modal[class*="icon-"] {
+            top: -10px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            color: #fff;
+            line-height: 1.25;
+            text-align: center;
+            text-decoration: none;
+            text-indent: 0;
+            background: #900;
+            border: 2px solid #fff;
+            -webkit-border-radius: 26px;
+            -moz-border-radius: 26px;
+            -o-border-radius: 26px;
+            -ms-border-radius: 26px;
+            -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     input[type=text] {
       background-color: sky-blue;
       text-transform: uppercase;
@@ -120,6 +143,7 @@ input[type=button] {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 @stack('scripts')
 
 
@@ -144,6 +168,27 @@ input[type=button] {
         }
       })
     })
+
+    $('#cauntry').select2({
+    placeholder: "Choose cauntry ...",
+    minimumInputLength: 2,
+    ajax: {
+        url: '/tags/find',
+        dataType: 'json',
+        data: function (params) {
+            return {
+                q: $.trim(params.term)
+            };
+        },
+        processResults: function (data) {
+            return {
+                results: data
+            };
+        },
+        cache: true
+        }
+      });
+      
     //
     // $(input).click(function (){
     //   $(this).css("background-color", "#0F0")

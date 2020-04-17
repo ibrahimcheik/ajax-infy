@@ -30,9 +30,15 @@ class PersonController extends AppBaseController
     public function index(Request $request)
     {
         $people = $this->personRepository->all();
+        // dd($people);
 
-        return view('people.index')
-            ->with('people', $people);
+        // $cauntries = [
+        //   'niger' => 'Niger',
+        //   'tunisie' => 'Tunisie',
+        //   'malie' => 'Malie'
+        // ];
+
+        return view('people.index', compact('people'));
     }
 
     /**

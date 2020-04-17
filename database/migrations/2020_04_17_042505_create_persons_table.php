@@ -15,12 +15,16 @@ class CreatePersonsTable extends Migration
     {
         Schema::create('persons', function (Blueprint $table) {
             $table->id();
+
+            $table->string('genre');
+
+            $table->string('cauntry');
 	    $table->string('nom');
 	    $table->string('prenom');
 	    $table->integer('age');
 	    $table->date('date');
 	    $table->longText('description');
-	    $table->softDeletes();	    
+	    $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -35,4 +39,3 @@ class CreatePersonsTable extends Migration
         Schema::dropIfExists('persons');
     }
 }
-

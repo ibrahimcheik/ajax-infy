@@ -11,7 +11,7 @@ $factory->define(Person::class, function (Faker $faker) {
         'nom' => $faker->word,
         'prenom' => $faker->word,
         'age' => $faker->randomDigitNotNull,
-        'date' => $faker->word,
+        'date' => $faker->date('Y-m-d H:i:s'),
         'description' => $faker->text,
         'deleted_at' => $faker->date('Y-m-d H:i:s'),
         'created_at' => $faker->date('Y-m-d H:i:s'),
